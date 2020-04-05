@@ -47,7 +47,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # 元素比较少时可以使用计数排序
+        # 元素比较少时可以使用计数排序, 思路为三路快排partition简化版
         one = -1
         two = len(nums)
         index = 0
