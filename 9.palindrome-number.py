@@ -49,6 +49,21 @@
 # @lc code=start
 class Solution:
     def isPalindrome(self, x: int) -> bool:
+        if x < 0: return False
+        unit = 0  ## 代表的是索引数, 小心等号，第一次提交没写！导致wrong answer
+        while x / 10**(unit + 1) >= 1:
+            unit += 1
+        l, r = unit, 0 # 对应的值是 10**unit
+        while l > r:
+            ld = int(x%(10**(l+1))/(10**l))
+            rd = int(x%(10**(r+1))/(10**r))
+            if ld != rd:
+                return False
+            else:
+                l -= 1
+                r += 1
+        return True
+
         
 # @lc code=end
 
