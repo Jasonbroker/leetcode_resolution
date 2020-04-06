@@ -37,6 +37,20 @@
 # @lc code=start
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
+        # the easiest way is sort the list then get nums[k-1]
+        # O(nlogn)
+
+        # O(n)
+        pivot = 0  # choose the first one to be the pivot (like fast sort)
+        min = 0
+        max = len(nums) - 1
+        for idx in range(min, max):
+            val = nums[idx]
+            pval = nums[pivot]
+            if idx < pivot and val > pval:
+                # left and bigger
+                
+
         
 # @lc code=end
 
