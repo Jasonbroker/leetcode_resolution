@@ -41,6 +41,27 @@
 # @lc code=start
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        
+        # aeiou
+        l, r = 0, len(s) - 1
+        strlist = []
+        for idx in range(len(s)):
+            strlist.append(s[idx])
+        mset = set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
+        while l < r:
+            if s[l] not in mset:
+                l += 1
+                continue
+            if s[r] not in mset:
+                r -= 1
+                continue
+            strlist[l], strlist[r] = strlist[r], strlist[l]
+            l += 1
+            r -= 1
+        result = ''
+        for val in strlist:
+            result += val
+        return result    
+
+
 # @lc code=end
 
