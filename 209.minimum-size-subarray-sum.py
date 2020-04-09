@@ -50,8 +50,6 @@ class Solution:
                     break
                 # print("min %d" %(lastSum))
             else:
-                if minResult == 0 : minResult = forward - backward + 1
-                else:
                     minResult = min(minResult, forward - backward + 1)
                 lastSum -= nums[backward]
                 backward += 1
