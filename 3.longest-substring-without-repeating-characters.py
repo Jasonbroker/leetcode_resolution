@@ -53,6 +53,30 @@
 # @lc code=start
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) == 0: return 0
+        pre, post = 0, 0
+        result = -1
+        length = len(s)
+        mapcache = {}
+        while pre < length:
+            if s[pre] not in mapcache:
+                mapcache[s[pre]] = pre
+                # print('not', mapcache)
+            else:
+                result = max(result, (pre - post))
+                lastshowcharidx = mapcache[s[pre]]
+                post = lastshowcharidx + 1
+                mapcache[s[pre]] = pre
+                for k in list(mapcache):
+                    if mapcache[k] < post:
+                        del mapcache[k]
+                # print(pre, post)
+            pre += 1
+            if pre == length:
+               result = max(result, (pre - post)) 
+        return result        
+            
+
+
         
 # @lc code=end
-
