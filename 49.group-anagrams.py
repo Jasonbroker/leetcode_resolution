@@ -38,6 +38,17 @@
 # @lc code=start
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # 最笨的办法
+        cache = collections.defaultdict(list)
+        for string in strs:
+            arr = list(string)
+            arr.sort()
+            strsort = str(arr)
+            cache[strsort].append(string)
+        return list(cache.values())
+                                   
+
+
         
 # @lc code=end
 
