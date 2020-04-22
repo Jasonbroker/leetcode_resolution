@@ -40,6 +40,19 @@
 # @lc code=start
 class Solution:
     def numberOfBoomerangs(self, points: List[List[int]]) -> int:
+        res = 0
+        for point in points:
+            map = collections.defaultdict(int)
+            for point2 in points:
+                if point is not point2:
+                    map[self.distance(point, point2)] += 1
+            # print(map)
+            for val in map.values():
+                if val >= 2:
+                    res += val * (val - 1)
+        return res            
         
+    def distance(self, point1: List[int], point2: List[int]) -> int:
+        return (point1[0] - point2[0]) ** 2  + (point1[1] - point2[1]) ** 2
 # @lc code=end
 
