@@ -37,6 +37,16 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
+        if not head: return head
+        cur = head
+        pre = None
+        while cur:
+            next = cur.next
+            cur.next = pre
+            pre = cur
+            cur = next
+        return pre
+
         
 # @lc code=end
 
