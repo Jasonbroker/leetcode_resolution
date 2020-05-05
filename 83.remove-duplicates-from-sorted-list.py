@@ -43,7 +43,7 @@ class Solution:
         pre = None
         cur = head
         while cur:
-            if pre == cur:
+            if pre and pre.val == cur.val:
                 pre.next = cur.next
             else:
                 pre = cur
