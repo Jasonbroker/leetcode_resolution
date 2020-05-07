@@ -36,6 +36,36 @@
 #         self.next = next
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        
+        # 思路 双指针链表
+        cur = head
+        small_head = None
+        small_tail = None
+        big_head = None
+        big_tail = None
+        pre = None
+        while cur:
+            if cur.val < x:
+                if small_head == None:
+                    small_head = cur
+                else:
+                    small_tail.next = cur
+                small_tail = cur
+            else:
+                if big_head == None:
+                    big_head = cur
+                else:
+                    big_tail.next = cur
+                big_tail = cur   
+            cur = cur.next
+
+        if small_head:
+            small_tail.next = big_head
+            # 如果重置会出现最后一个元素的next没变nil的问题，其实根本原因是需要每次只把tail更新到cur，
+            # 但是没管他的next指向，因为前后都连起来了
+            # 只有最后一个元素受影响
+            if big_tail: big_tail.next = None
+            return small_head
+        else:
+            return head
 # @lc code=end
 
