@@ -35,8 +35,9 @@ class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         res 
         if l1.val > l2.val
-        
-        while not l1.next and not l2.next:
+        curl1 = l1
+        curl2 = l2
+        while not curl1 and not curl1.next:
 
         
 # @lc code=end
