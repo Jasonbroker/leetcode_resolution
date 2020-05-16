@@ -64,6 +64,18 @@
 #         self.next = next
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
-        
+        pos = head
+        if not pos or not pos.next: return head
+        while pos.next:
+            smallest_node = pos
+            inner_cur = pos
+            while inner_cur:
+                if smallest_node.val > inner_cur.val:
+                    smallest_node = inner_cur
+                inner_cur = inner_cur.next
+            pos.val, smallest_node.val = smallest_node.val, pos.val
+            pos = pos.next
+        return head
+            
 # @lc code=end
 
