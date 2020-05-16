@@ -41,7 +41,20 @@ class Solution:
     #             bit += 1
     #     return count
     
+
+
+
     def countDigitOne(self, n: int) -> int:
-        
+        if n < 10: return 1
+        digit = 0
+        count = 0
+        while (n // 10 ** (digit)) > 1:
+            if digit == 0:
+                count += 1
+            else:
+                count += 10 ** digit
+            digit += 1
+        count += n - 10 ** (digit) + 1
+        return count
 # @lc code=end
 
