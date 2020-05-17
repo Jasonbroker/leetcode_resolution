@@ -38,6 +38,12 @@
 # @lc code=start
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        sum1 = 0
+        for num in nums:
+            sum1 += num
         
+        sum2 = (1 + n) * n // 2
+        return sum2 - sum1
 # @lc code=end
 
