@@ -47,6 +47,20 @@
 #         self.next = next
 class Solution:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
+        if k == 0 or not head.next: return head
+        tar = head
+        cur = head
+        count = 0
+        for i in range(k - 1):
+            if not cur.next:
+                break
+            cur = cur.next
+            count += 1
+        k = k % count
+
+        cur.next = head
+        
+        
         
 # @lc code=end
 
